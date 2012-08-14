@@ -1,1 +1,3 @@
-console.log('nodjo');
+exports.startServer = function () {
+    console.log("Starting Server");
+}
