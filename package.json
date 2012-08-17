@@ -9,7 +9,7 @@
   },
   "main": "main.js",
   "engines": {
-    "node": "~0.6.5"
+    "node": "*"
   },
   "dependencies": {
     "express": "*",
