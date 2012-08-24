@@ -2,7 +2,7 @@
   "author": "Simon Crabtree",
   "name": "nodjo",
   "description": "Develop rich client web apps with Dojo and Node",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/simoncrabtree/nodjo.git"

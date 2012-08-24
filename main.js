@@ -5,8 +5,8 @@ exports.startServer = function () {
 
     var app = express();
     app.set('view engine', 'ejs');
-    app.set('views', __dirname + '/views');
-    app.use(express.static(__dirname + '/client'));
+    app.set('views', process.env.PWD + '/server/views');
+    app.use(express.static(process.env.PWD + '/client'));
 
     app.get('/', function (req, res) {
         res.render("index");
