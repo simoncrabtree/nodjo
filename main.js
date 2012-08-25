@@ -4,18 +4,22 @@ exports.startServer = function (options) {
 
     var app = express();
     app.set('view engine', 'ejs');
+    app.set('views', process.env.PWD + '/server/views');
     app.use(express.static(process.env.PWD + '/client'));
 
     app.configure('development', function () {
         console.log("Running in Development Mode");
+        app.use(express.static(__dirname + '/clientSpecRunner'));
         app.get('/runspecs', function (req, res) {
-            app.set('views', __dirname + '/specrunner');
-            res.render("specrunner");
+            app.set('views', __dirname + '/clientSpecRunner');
+            res.render("specrunner", {
+                specs: "['one', 'two']"
+            });
+            app.set('views', process.env.PWD + '/server/views');
         });
     });
 
     app.get('/', function (req, res) {
-        app.set('views', process.env.PWD + '/server/views');
         res.render("index");
     });
 
