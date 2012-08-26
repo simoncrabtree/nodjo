@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+        <title>Specrunner</title>
+        <style type="text/css" media="screen">
+            body{
+                font-family: "Helvetica", "Arial", "sans-serif";
+                background-color: #bbb;
+            }
+
+            body.passed{
+                background-color: green;
+            }
+
+            body.failed{
+                background-color: red;
+            }
+        </style>
+        <script type="text/javascript" language="javascript" charset="utf-8">
+            dojoConfig = {
+                async: true,
+                packages: [{
+                    name: 'limanade', location: '/limanade'
+                }]
+            };
+        </script>
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.0/dojo/dojo.js"></script>
+    </head>
+    <body>
+        <h1>Limanade Spec Runner</h1>
+        <script type="text/javascript" language="javascript" charset="utf-8">
+            require(['dojo/_base/xhr', 'limanade/main', 'dojo/domReady!'], function (xhr, limanade) {
+                limanade.execute({
+                    specs: <%=specs%>
+                }, function () {
+                    console.log("Done");
+                });
+            });
+        </script>
+    </body>
+</html>
